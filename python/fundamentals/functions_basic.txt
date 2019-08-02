@@ -1,0 +1,97 @@
+#1
+def a():
+    return 5
+print(a())
+
+#ANSWER: 5
+
+#2
+def a():
+    return 5
+print(a()+a())
+
+#ANSWER: 10
+
+#3
+def a():
+    return 5
+    return 10
+print(a())
+
+#ANSWER: 5
+
+
+#4
+def a():
+    return 5
+    print(10)
+print(a())
+
+#ANSWER: 5
+
+#5
+def a():
+    print(5)
+x = a()
+print(x)
+
+#ANSWER: 5??
+
+#6
+def a(b,c):
+    print(b+c)
+print(a(1,2) + a(2,3))
+
+#ANSWER: 8
+
+
+#7
+def a(b,c):
+    return str(b)+str(c)
+print(a(2,5))
+
+#ANSWER: (becomes string) 25
+
+
+#8
+def a():
+    b = 100
+    print(b)
+    if b < 10:
+        return 5
+    else:
+        return 10
+    return 7
+print(a())
+
+#ANSWER: I WANT TO SAY 100, but there is a syntax error I cannot figure out to check (else should be elif?)
+
+
+
+#9
+def a(b,c):
+    if b<c:
+        return 7
+    else:
+        return 14
+    return 3
+print(a(2,3))
+print(a(5,3))
+print(a(2,3) + a(5,3))
+
+#ANSWER: 7
+	14
+	21
+
+
+#10
+def a(b,c):
+    return b+c
+    return 10
+print(a(3,5))
+
+#ANSWER: 
+
+
+
+
