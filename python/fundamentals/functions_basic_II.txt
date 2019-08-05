@@ -2,10 +2,11 @@
 1. Countdown - Create a function that accepts a number as an input. Return a new list that counts down by one, from the number (as the 0th element) down to 0 (as the last element).
 
 def countdown(num):
-    new_list = []
-    for count in range(num, 0, -1):
-        new_list.append(count)
-    return new_list
+  new_list = []
+  for num in range(num, 0, -1):
+    new_list.append(num)
+  return new_list
+countdown(9)
 
 2.Print and Return - Create a function that will receive a list with two numbers. Print the first value and return the second.
 
@@ -15,8 +16,9 @@ def print_and_return(list):
 
 3.First Plus Length - Create a function that accepts a list and returns the sum of the first value in the list plus the list's length.
 
-def first_plus():
+def first_plus(arr):
     return (first_plus[0] + (len.first_plus))
+    
 
 
 
