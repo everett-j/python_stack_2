@@ -1,0 +1,15 @@
+#COMPLETE THE RANDINT FUNCTION
+
+import random
+def randInt(min = '', max = '' ):
+    for i in range():
+    num = random.random()
+    return num
+
+print randInt(0,100)
+print randInt(0,50)
+print randint(50,100)
+print randint(50,500)
+
+
+
