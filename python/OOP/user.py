@@ -25,6 +25,8 @@ addison = User("Addison Everett", "munchkineverett@gmail.com")
 
 class BankAccount:
     def __init__(self)
+    self.interest = interest_rate
+    self.interest_rate = 0.01
     self.account_balance = 0
     
     def deposit (self, amount)
@@ -37,6 +39,5 @@ class BankAccount:
         print ("Balance: $" self.account_balance)  
 
     def yield_interest (self)
-        interest = 0
-        if account_balance > 0:
-            print(self.account_balance * interest)  
+       if account_balance > 0:
+            print(self.account_balance * interest_rate)  
