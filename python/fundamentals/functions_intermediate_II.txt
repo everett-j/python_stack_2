@@ -44,12 +44,20 @@ print(last_name)
 
 
 #Iterate Through a Dictionary with List Values
-def printInfo(some_dict)
-print((len(dojo[locations])) + "Locations")
-print(dojo[locations])
+dojo = {
+  'locations': ['San Jose', 'Seattle', 'Dallas', 'Chicago', 'Tulsa', 'DC', 'Burbank'],
+  'instructors': ['Michael', 'Amy', 'Eduardo', 'Josh', 'Graham', 'Patrick', 'Minh', 'Devon']}
 
-print((len(dojo[instructors])) + "Instructors")
-print(dojo[instructors])
+
+
+def printInfo(dojo):
+  for k,v in dojo.items():
+    print((len(k)),"locations")
+    for j in v:
+      print(j)
+
+
+print(printInfo(dojo))
 
 
 
