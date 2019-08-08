@@ -19,6 +19,14 @@ def repeater(phrase, rep):
     rep = int(rep)
     return(f"{phrase}\n" * rep)
 
+@app.route("/<name>/<times>")
+def hello_person(name, times)
+    print(name)
+    return render_template
+    ("play.html".
+    some_name=name,
+    num_times=int(times))
+
 
 
 
