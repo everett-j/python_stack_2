@@ -1,16 +1,19 @@
-from flask import Flask, render_template # Import Flask to allow us to create our app
-app = Flask(__name__)    # Create a new instance of the Flask class called "app"
+from flask import Flask, render_template  
+app = Flask(__name__)
 
-@app.route('/')                           
+@app.route('/play')                           
 def play():
-    return render_template("play.html", phrase="hello", times=5)
-    
-@app.route("/<name>/<times>")
-def hello_person(name, times):
-    print(name)
-    return render_template("name.html",some_name=name,num_times=int(times))
+    return render_template("play.html", num_times=3)
+
+@app.route('/play/<num_times>')                           
+def play_num(num_times):
+    return render_template("play.html", num_times=int(num_times), color_input="blue")
+
+@app.route('/play/<num_times>/<color_input>')                           
+def play_color(num_times, color_input):
+    return render_template("play.html", num_times=int(num_times), color_input=color_input)
 
     
-if __name__=="__main__":   # Ensure this file is being run directly and not from a different module
-    app.run(debug=True)    # Run the app in debug mode.
+if __name__=="__main__":
+    app.run(debug=True)
 

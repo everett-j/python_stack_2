@@ -19,13 +19,15 @@
             .wrapper { 
                 height: 100%;
             }
+            
             .restrict {
-                width: 25%;
+                width: 20%;
                 min-height: 200px;
-                background-color: green;
+                background-color: {{ color_input }};
                 display: inline-block;
                 vertical-align: top;
                 padding: 15px;
+                margin: 5px
             }
     
 
@@ -34,32 +36,15 @@
 </head>
 <body>
 <div class="wrapper">
+    <!--BEGINNGING OF DYNAMIC DIV-->
+    {% for x in range(0,num_times) %}
     <div class="restrict">
-        <h3>My Flask Template</h3>
-        <p>Phrase: {{ phrase }}</p>
-        <p>Times: {{ times }}</p>
-          
-        {% for x in range(0,times): %}
-            <p>{{ phrase }}</p>
-        {% endfor %}
-          
-        {% if phrase == "hello" %}
-            <p>The phrase says hello</p>
-        {% endif %}
+        
     </div>
-            <div class="restrict">
-                <h3>My Flask Template</h3>
-                <p>Phrase: {{ phrase }}</p>
-                <p>Times: {{ times }}</p>
-                  
-                {% for x in range(0,times): %}
-                    <p>{{ phrase }}</p>
-                {% endfor %}
-                  
-                {% if phrase == "hello" %}
-                    <p>The phrase says hello</p>
-                {% endif %}
-            </div>
+    {% endfor %}
+    <!--END OF DYNAMIC DIV-->
+
+
 
 
 </div>
