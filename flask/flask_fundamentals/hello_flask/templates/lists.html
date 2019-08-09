@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>My Checkers</title>
+    <title>My Lists</title>
     
     <style>
             body {
@@ -22,21 +22,14 @@
 <body>
 <div class="wrapper">
     <!--BEGINNGING OF DYNAMIC DIV-->
-<table>
-{% for i in range(r1): %}
-  <tr>
-    {% for j in range(r2): %}
-    <td class='color{{ (i+j)%2+1 }}'></td>
-    
+    <h1>Random Numbers</h1>
+    {% for number in random_numbers %}
+        <p>{{ number }}</p>
     {% endfor %}
-  </tr>
-  
-  {% endfor %}
-
-
-
-
-</table>
+    <h1>Students</h1>
+    {% for student in students %}
+        <p>{{ student['name'] }} - {{ student['age'] }}</p>
+    {% endfor %}
 
 
 </div>

@@ -2,18 +2,21 @@ from flask import Flask, render_template
 app = Flask(__name__)
 
 @app.route('/')                           
-def play():
-    return render_template("checkers.html", num_times=8**)
+def checkers():
+    return render_template("checkers.html", r1=8, r2=8)
 
-@app.route('/<num_times>')                           
-def play_num(num_times):
-    return render_template("checkers.html", num_times=int(num_times))
+@app.route('/<r1>')
+def checkers_x(r1):
+    return render_template("checkers.html", r1=int(r1), r2=8)
 
-@app.route('/<x_>/<y_>')                           
-def play_color(num_times, x_, y_):
-    return render_template("checkers.html", num_times=int(num_times))
+@app.route('/<r1>/<r2>')
+def checkers_y(r1,r2):
+    return render_template("checkers.html", r1=int(r1), r2=int(r2))
+
+
 
     
 if __name__=="__main__":
     app.run(debug=True)
+
 
