@@ -18,13 +18,13 @@
 <body>
 <div class="d-flex p-5 wrapper">
     <!--BEGINNGING OF DYNAMIC DIV-->
-        <form action='/response' method='post'>
+        <form action='/process' method='post'>
             <div class="form-group">
-            Your Name: <input type="text" class="form-control" name="full_name"> 
+            Your Name: <input type="text" class="form-control" name="full_name_form"> 
             </div>
             <div class="form-group">
               Dojo Location:
-              <select class="form-control" name="dojo_location">
+              <select class="form-control" name="dojo_location_form">
                 <option>Bellevue</option>
                 <option>San Jose</option>
                 <option>Texas</option>
@@ -34,7 +34,7 @@
             </div>
             <div class="form-group">
                     Favorite:
-                    <select class="form-control" name="fav_language">
+                    <select class="form-control" name="fav_language_form">
                       <option>Jinja</option>
                       <option>Python</option>
                       <option>JavaScript</option>
@@ -44,7 +44,7 @@
                   </div>
             <div class="form-group">
               Comment (Optional):
-              <textarea class="form-control" name="comments" rows="3"></textarea>
+              <textarea class="form-control" name="comments_form" rows="3"></textarea>
             </div>
             
             <button type="submit" value="create_user" class="btn btn-primary">Submit</button>
