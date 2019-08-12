@@ -15,13 +15,16 @@ def index():
 @app.route('/guess', methods=['POST'])
 def guess():
     guess=int(request.form['number'])
-    if guess== session['number']:
-        session['message']= "YOU WON!"
+    if guess == session['number']:
+        session['message']= "YOU'RE a WINNER!"
+        color_input="green"
     if guess > session['number']:
-        session['message']= 'You guessed too High'
-    elif guess< session['number']:
-        session['message']= 'Too Low, Guess again.'
-    return redirect('/')
+        session['message']= 'You guessed too High, try again.'
+        color_input="red"
+    elif guess < session['number']:
+        session['message']= 'Too Low, try again.'
+        color_input="orange"
+    return redirect('/', color_input=color_input)
 @app.route('/destroy')
 def destroy():
     session['number']
@@ -32,6 +35,3 @@ def destroy():
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-
-
