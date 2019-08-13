@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'apps.your_app_name_here', # added this line. Don't forget the comma!!
+    'apps.movies',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
