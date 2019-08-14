@@ -1,0 +1,30 @@
+users(shell)
+#Create 3 new users:
+
+newly_created_user = User.objects.create(first_name="Bill",last_name="Clinton",email_address="ask@hillary.com",age=68)
+newly_created_user = User.objects.create(first_name="Adam",last_name="Ssandler",email_address="adam@yahoo.com",age=48)
+newly_created_user = User.objects.create(first_name="Steve",last_name="Jobs",email_address="steve@apple.com",age=58)
+
+#Retrieve all users
+all_users = User.objects.all()
+
+#Retrieve First User
+first_user = User.objects.first()
+
+#Retrieve Last User
+first_user = User.objects.last()
+
+
+#Change user id3 to last name Pancakes
+user_to_update = User.objects.get(id=3)
+user_to_update.last_name = "Pancakes"
+user_to_update.save()	
+
+
+#delete user id2 from DB
+user_to_delete = User.objects.get(id=2)
+user_to_delete.delete()
+
+
+
+
