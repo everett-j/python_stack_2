@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <title>Books & Authors</title>
+        <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'ninja2/css/style.css' %}">    
+        <script src="{% static 'app_name/js/script.js' %}"></script>        
+    </head>
+    <body >
+        <main role="main">
+
+            <!-- Main jumbotron for a primary marketing message or call to action -->
+            <div class="jumbotron">
+              <div class="container">
+                <h3 class="display-5">{{ author_views1.first_name }} {{ author_views1.last_name }}</h3>
+                <div id="row">
+                    <div class="mb-3 w-18 d-inline-block ">ID:</div>{{ author_views1.id }}
+                </div>
+                <div id="row">
+                    <div class="mb-3 w-20 d-inline-block">Notes:</div>
+                    <div class="mb-3 w-33 d-inline-block">
+                    <p>{{ author_views1.notes }}</p>
+                  </div>
+              </div>
+              
+                  <div class="mb-3 w-20 d-inline-block">Books:</div>
+            <div id="row">
+                  <div class="mb-3 w-33 d-inline-block">
+                  <ul>
+                    <li>{{ author_views1.books }}</li>
+                    
+                  </ul>
+                </div>
+            </div>
+            <div id="row">
+                <form>
+                    <div class="form-group">
+                      <select class="form-group col-md-2" id="select_author">
+                        <option selected>Select a book</option>
+                        <option>Tim Hortons</option>
+                        <option>Col Sanders</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                      </select>
+                      
+                    </div>
+                    <button class="btn btn-primary btn-sm " type="submit">Add</button>
+                    
+                                    </form>
+                
+              </div>
+            </div>
+            </div>
+      
+
+      
+          </main>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

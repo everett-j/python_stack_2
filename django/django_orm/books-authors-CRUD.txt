@@ -1,0 +1,87 @@
+Books.objects.create(title="C Sharp",description="C Sharp 4-ever")
+
+Books.objects.create(title="Java",description="Java 4-ever")
+Books.objects.create(title="Python",description="Python 4-ever")
+Books.objects.create(title="PHP",description="PHP 4-ever")
+Books.objects.create(title="Ruby",description="Ruby 4-ever")
+
+
+Authors.objects.create(first_name="Jane",last_name="Austen")
+Authors.objects.create(first_name="Emily",last_name="Dickenson")
+Authors.objects.create(first_name="Fyodor",last_name="Dostoevksy")
+Authors.objects.create(first_name="William",last_name="Shakespeare")
+Authors.objects.create(first_name="Lau",last_name="Tzu")
+
+
+book_to_update = Books.objects.get(title='C Sharp')  
+book_to_update.title = "C#"    
+book_to_update.save()  
+
+
+book_to_update= Books.objects.get(id=1) 
+author_to_update = Authors.objects.get(id=1)
+author_to_update.books.add(book_to_update)
+author_to_update.save()
+
+book_to_update= Books.objects.get(id=2) 
+author_to_update = Authors.objects.get(id=1)
+author_to_update.books.add(book_to_update)
+author_to_update.save()
+
+book_to_update= Books.objects.get(id=1) 
+author_to_update = Authors.objects.get(id=2)
+author_to_update.books.add(book_to_update)
+author_to_update.save()
+
+book_to_update= Books.objects.get(id=2) 
+author_to_update = Authors.objects.get(id=2)
+author_to_update.books.add(book_to_update)
+author_to_update.save()
+
+book_to_update= Books.objects.get(id=3) 
+author_to_update = Authors.objects.get(id=2)
+author_to_update.books.add(book_to_update)
+author_to_update.save()
+
+book_to_update= Books.objects.get(id=1) 
+author_to_update = Authors.objects.get(id=3)
+author_to_update.books.add(book_to_update)
+author_to_update.save()
+
+book_to_update= Books.objects.get(id=2) 
+author_to_update = Authors.objects.get(id=3)
+author_to_update.books.add(book_to_update)
+author_to_update.save()
+
+book_to_update= Books.objects.get(id=3) 
+author_to_update = Authors.objects.get(id=3)
+author_to_update.books.add(book_to_update)
+author_to_update.save()
+
+book_to_update= Books.objects.get(id=4) 
+author_to_update = Authors.objects.get(id=3)
+author_to_update.books.add(book_to_update)
+author_to_update.save()
+
+book_to_update= Books.objects.get(id=5) 
+author_to_update = Authors.objects.get(id=4)
+author_to_update.books.add(book_to_update)
+author_to_update.save()
+
+book_to_update= Books.objects.get(id=4) 
+author_to_update = Authors.objects.get(id=4)
+author_to_update.books.add(book_to_update)
+author_to_update.save()
+
+book_to_update= Books.objects.get(id=3) 
+author_to_update = Authors.objects.get(id=4)
+author_to_update.books.add(book_to_update)
+author_to_update.save()
+
+book_to_update= Books.objects.get(id=2) 
+author_to_update = Authors.objects.get(id=4)
+author_to_update.books.add(book_to_update)
+author_to_update.save()
+
+Authors.objects.all().values()  
+Books.objects.all().values()

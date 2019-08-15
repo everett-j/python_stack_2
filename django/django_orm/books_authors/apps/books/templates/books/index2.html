@@ -1,0 +1,90 @@
+<html>
+    <head>
+        <title>NINJA GOLD 2.0</title>
+        <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'ninja2/css/style.css' %}">    
+        <script src="{% static 'app_name/js/script.js' %}"></script>        
+    </head>
+    <body >
+        <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+          <header class="masthead mb-auto">
+            <div class="inner">
+            </div>
+          </header>
+        
+           <!--Interactive GOLD-->   
+ <div class="container">
+  <div class="card-body shadow-sm">
+ <div class="row">
+     <h3>Your Gold: {{ request.session.gold }}</h3>
+     <form action="ninja2/clear" method="POST" class="reset">
+        {% csrf_token %}
+         <input type="submit" name="submit" value="Reset Game" />
+     </form>
+ </div>
+ <div class="row">
+     <div class="card mb-4 shadow-sm location">
+         <h3>Farm</h3>
+         <p>(earns 10-20 gold)</p>
+         <form action="ninja2/calculateMoney" method="POST">
+            {% csrf_token %}
+             <input type="hidden" name="hidden" value="farm"/>
+             <input type="submit" name="submit" value="Find Gold!"/>
+         </form>
+     </div>
+     <div class="card mb-4 shadow-sm location">
+         <h3>Cave</h3>
+         <p>(earns 5-10 gold)</p>
+         <form action="ninja2/calculateMoney" method="POST">
+            {% csrf_token %}
+             <input type="hidden" name="hidden" value="cave"/>
+             <input type="submit" name="submit" value="Find Gold!"/>
+         </form>
+     </div>
+     <div class="card mb-4 shadow-sm location">
+         <h3>House</h3>
+         <p>(earns 2-5 gold)</p>
+         <form action="ninja2/calculateMoney" method="POST">
+            {% csrf_token %}
+             <input type="hidden" name="hidden" value="house"/>
+             <input type="submit" name="submit" value="Find Gold!"/>
+         </form>
+     </div>
+     <div class="card mb-4 shadow-sm location">
+         <h3>Casino</h3>
+         <p>(earns/takes 0-50 gold)</p>
+         <form action="ninja2/calculateMoney" method="POST">
+            {% csrf_token %}
+             <input type="hidden" name="hidden" value="casino"/>
+             <input type="submit" name="submit" value="Find Gold!"/>
+         </form>
+     </div>
+ </div>
+ <div class="row">
+     <div class="activities">
+         <h3>Activities:</h3>
+         
+         <ul>
+             {% for class, activity in request.session.activity %}
+             <li class="{{ class }}"></li>{{ activity }}</li>
+             {% endfor %}
+         </ul>
+         
+     </div>
+ </div>          
+</div>
+</div>
+        
+          <footer class="mastfoot mt-auto">
+            <div class="inner">
+             
+            </div>
+          </footer>
+        </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
