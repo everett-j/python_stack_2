@@ -8,5 +8,6 @@ urlpatterns = [
     url(r'^books/(?P<book_id>\d+)$', views.book_view),
     url(r'^authors/(?P<author_id>\d+)$', views.author_view),
     url(r'^add_book$', views.add_book),
-    url(r'^author_info/(?P<author_id>\d+)/append_books$', views.append_books),
+    url(r'^add_author$', views.add_author),
+    url(r'^author_info/(?P<author_id>\d+)$', views.append_books),
 ]

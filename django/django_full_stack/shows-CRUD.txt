@@ -1,0 +1,3 @@
+Shows.objects.create(title="Brooklyn Nine-Nine",network="NBC", release="2015-07-22 20:00:00", description="Awesome and funny show about cops in Brooklyn")
+Shows.objects.create(title="The Office",network="NBC", release="2000-09-22 20:30:00", description="The best show on TV")
+Shows.objects.create(title="Seinfeld",network="NBC", release="1990-09-13 21:00:00", description="The best show on TV, by far one that will last in history forever.")

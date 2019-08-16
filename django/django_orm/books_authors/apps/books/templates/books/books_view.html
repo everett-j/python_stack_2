@@ -36,10 +36,10 @@
                 </div>
             </div>
             <div id="row">
-                <form action="{{books.id}}/append_authors" method="post">
+                <form action="/book_info/{{ books.id }}/append_authors" method="POST">
                   {% csrf_token %}
                     <div class="form-group">
-                      <select class="form-group col-md-2" id="select_author">
+                      <select class="form-group col-md-2" name="author_id">
                           {% for author in all_authors %}
                           <option value="{{author.id}}">{{author.first_name}}{{author.last_name}}</option>
                           {% endfor %}

@@ -13,36 +13,36 @@
             <!-- Main jumbotron for a primary marketing message or call to action -->
             <div class="jumbotron">
               <div class="container">
-                <h3 class="display-5">{{ author_views1.first_name }} {{ author_views1.last_name }}</h3>
+                
+                <h3 class="display-5">{{authors.first_name}} {{authors.last_name}}</h3>
                 <div id="row">
-                    <div class="mb-3 w-18 d-inline-block ">ID:</div>{{ author_views1.id }}
+                    <div class="mb-3 w-18 d-inline-block ">ID:</div> {{ authors.id }}
                 </div>
                 <div id="row">
                     <div class="mb-3 w-20 d-inline-block">Notes:</div>
                     <div class="mb-3 w-33 d-inline-block">
-                    <p>{{ author_views1.notes }}</p>
+                    <p> {{ authors.notes }}</p>
                   </div>
               </div>
               
                   <div class="mb-3 w-20 d-inline-block">Books:</div>
             <div id="row">
                   <div class="mb-3 w-33 d-inline-block">
-                  <ul>
-                    <li>{{ author_views1.books }}</li>
-                    
+                  <ul>         {% for book in books %}
+                      <li>{{book.title}} </li>   
+                      {% endfor %} 
                   </ul>
+                 
                 </div>
             </div>
-            <div id="row">
-                <form>
+              <div id="row">
+                <form action="/author_info/{{ authors.id }}" method="POST">
+                  {% csrf_token %}
                     <div class="form-group">
-                      <select class="form-group col-md-2" id="select_author">
-                        <option selected>Select a book</option>
-                        <option>Tim Hortons</option>
-                        <option>Col Sanders</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
+                      <select class="form-group col-md-2" name="book_id">
+                          {% for book in other_books %}
+                          <option value="{{book.id}}">{{book.title}}</option>
+                          {% endfor %}
                       </select>
                       
                     </div>

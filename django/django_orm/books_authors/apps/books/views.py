@@ -9,10 +9,10 @@ def index(request):
     
     return render(request, "books/index.html", all_the_books)
 
+#BOOK FUNCTIONS
 
-
+#book info page
 def book_view(request, book_id):
-    
     context = {
         'books' : Books.objects.get(id = book_id),
         'authors' : Books.objects.get(id = book_id).Authors.all(),
@@ -20,33 +20,52 @@ def book_view(request, book_id):
     }
     return render(request, "books/books_view.html", context)
 
-def author_view(request, author_id):
-    option = Books.objects.get(id = request.POST['select_book'])
-    Authors.objects.get(id = author_id).books.add(option)
-    return redirect(f'/author_info/{author_id}')
-
-def author(request, author_id):
-    context = {
-        'authors' : Authors.objects.get(id = author_id),
-        'books' : Authors.objects.get(id = author_id).books.all(),
-        'all_books' : Books.objects.all(),
-    }
-    return render(request, "books/authors.html", context)
-
-def add_author(request, new_author):
-    new_author = Authors.objects.create(first_name = request.POST['fname'], last_name = request.POST['lname'], notes = request.POST['notes'])
-    return redirect('books/authors.html')
-
+#book page - add author
 def append_authors(request, book_id):
-    option = Authors.objects.get(id = request.POST['select_author'])
-    Books.objects.get(id = book_id).authors.add(option)
-    return redirect(f'books/books_view.html/{book_id}')
+    if request.method=="POST":
+        thisBook = Books.objects.get(id=book_id)
+        thisAuthor = Authors.objects.get(id=request.POST['author_id'])
+        thisBook.Authors.add(thisAuthor)
+    return redirect("/books/"+book_id)
 
-def add_book(request, new_book):
-    new_book = Books.objects.create(title = request.POST['title'], desc = request.POST['desc'])
-    return redirect('/')
+#add book    
+def add_book(request):
+    print ("I am before the if")
+    if request.method=="POST":
+        Books.objects.create(title=request.POST['title'], description=request.POST['description'])
+    return redirect("/")
 
-def append_books(request, author_id, select_book):
-    option = Books.objects.get(id = request.POST['select_book'])
-    Authors.objects.get(id = author_id).books.add(option)
-    return redirect(f'/author_info/{author_id}')
+
+
+#AUTHORS FUNCTIONS
+
+#all author page
+def author(request):
+    data = {
+        "all_authors": Authors.objects.all()
+    }
+    return render(request, "books/authors.html", data)
+
+#Add Author to Author Page
+def add_author(request):
+    print ("I am before the if")
+    if request.method=="POST":
+        Authors.objects.create(first_name=request.POST['first_name'], last_name=request.POST['last_name'], notes=request.POST['notes'])
+    return redirect("/authors")
+
+#Add books to authors**********
+def append_books(request, author_id):
+    thisBook = Books.objects.get(id=request.POST['book_id'])
+    thisAuthor = Authors.objects.get(id=author_id)
+    thisAuthor.books.add(thisBook)
+    return redirect(f'/authors/{author_id}')
+
+#author info page - by ID
+def author_view(request, author_id):
+    context = {
+        'books' : Authors.objects.get(id = author_id).books.all(),
+        'authors' : Authors.objects.get(id = author_id),
+        'all_authors' : Authors.objects.all(),
+        'other_books' : Books.objects.exclude(Authors__id=author_id)
+    }
+    return render(request, "books/authors_view.html", context)
