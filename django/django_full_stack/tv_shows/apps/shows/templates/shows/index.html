@@ -1,16 +1,16 @@
 <html>
     <head>
-        <title>TV SHOWS</title>
+        <title>TV SHOWS: Add</title>
         <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         {% load static %}
         <link rel="stylesheet" href="{% static 'ninja2/css/style.css' %}">    
         <script src="{% static 'app_name/js/script.js' %}"></script>        
     </head>
       <body class="bg-light">
             <div class="container">
-
-        
+       
           
             <div class="col-md-8 order-md-1">
               <!--NEED TO EDIT THIS BACK BUTTON-->
@@ -19,7 +19,7 @@
 
               <!--FORM BEGIN-->
               <h4 class="mb-3">Add a New Show</h4>
-              <form class="needs-validation" novalidate action="/shows/new" method="POST">
+              <form class="needs-validation" novalidate action="/new" method="POST">
                   {% csrf_token %}
                 <div class="mb-3 col-md-8">
                   <label for="title">Title</label>
@@ -32,14 +32,14 @@
                 <div class="row">
                   <div class="col-md-4 mb-3">
                     <label for="network">Network</label>
-                    <input type="text" class="form-control" name="network" placeholder="" value="" required>
+                    <input type="text" class="form-control" name="network" placeholder="" value="" required="required" data-error="Please enter the Network name.">
                     <div class="invalid-feedback">
                         Please Add Network Title.
                     </div>
                   </div>
                   <div class="col-md-4 mb-3">
                     <label for="release">Release Date</label>
-                    <input input class="form-control" type="datetime-local" name="release">
+                    <input input class="form-control" type="" name="release">
                     
                     </div>
                   </div>
@@ -60,6 +60,15 @@
               </form>
             </div>
           </div>
+          <!--ERROR MESSAGES-->
+          {% if messages %}
+          <ul class="messages error_red">    
+              {% for message in messages %}    
+                  <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>    
+              {% endfor %}
+          </ul>
+          {% endif %}
+          <!--END ERROR MESSAGES-->
         
           <footer class="my-5 pt-5 text-muted text-center text-small">
         </footer>

@@ -39,7 +39,7 @@
                               <th scope="col">{{shows.title}}</th>
                               <th scope="col">{{shows.network}}</th>
                               <th scope="col">{{shows.release}}</th>
-                            <td><a href="{{shows.id}}">Show</a> | <a href="{{shows.id}}">Edit</a> | <a href="{{shows.id}}">Delete</a> </td>
+                            <td><a href="/shows/{{ shows.id }}">Show</a> | <a href="/shows/{{ shows.id }}/edit">Edit</a> | <a href="/delete/{{ shows.id }}">Delete</a> </td>
                           </tr>
                           {% endfor %}
 

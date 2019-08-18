@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>TV SHOWS</title>
+        <title>TV SHOWS: Show Details</title>
         <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         {% load static %}
@@ -53,7 +53,7 @@
                       </div>
                       <div class="container padding_20">
                       <!--EDIT THIS LINK TO GO TO ADD A NEW SHOW PAGE-->
-                      <a href="#">Edit</a> | <a href="#">Delete</a> 
+                      <a href="/shows/{{ shows.id }}/edit">Edit</a> | <a href="/delete/{{ shows.id }}">Delete</a> 
                       </div>
           </div>
         
