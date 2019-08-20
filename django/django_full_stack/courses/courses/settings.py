@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'apps.course_app', # added this line. Don't forget the comma!!
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

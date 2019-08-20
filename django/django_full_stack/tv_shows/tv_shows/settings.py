@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-DATE_INPUT_FORMATS = ['%m-%d-%Y']
+
 
 ROOT_URLCONF = 'tv_shows.urls'
 

@@ -1,0 +1,5 @@
+Courses.objects.create(name="AJAX",comments="Good course", description="Awesome course on AJAX")
+
+Courses.objects.create(name="PYTHON",comments="Fantastic course", description="Awesome course on PYTHON")
+
+Courses.objects.create(name="Java",comments="The beast of a course", description="Awesome course on Java")
